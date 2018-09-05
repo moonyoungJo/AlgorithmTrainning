@@ -3,18 +3,18 @@ package problemSolvingStrategy;
 import java.util.Scanner;
 
 /*
- * Ä¿´Ù¶õ °ø¿¬ÀåÀ» ºô·Á¼­ ·Ï Æä½ºÆ¼¹úÀ» °³ÃÖÇÏ·Á°í ÇÕ´Ï´Ù. 
- * ÀÌ Æä½ºÆ¼¹úÀº ¿©·¯ ³¯ µ¿¾È ÁøÇàµÇ¸ç, 
- * ÇÏ·ç¿¡ ÇÑ ÆÀÀÇ ¹êµå°¡ °ø¿¬Àå¿¡¼­ ÄÜ¼­Æ®¸¦ ÇÏ°Ô µË´Ï´Ù. 
- * ÀüÃ¼ ¹êµå¸¦ ¸î ÆÀ ¼·¿ÜÇÒ Áö´Â ¾ÆÁ÷ °áÁ¤ÇÏÁö ¾Ê¾ÒÁö¸¸, 
- * Æä½ºÆ¼¹úÀÇ °£ÆÇ ½ºÅ¸ÀÎ L°³ÀÇ ÆÀÀº ÀÌ¹Ì ¼·¿Ü°¡ ³¡³­ »óÅÂÀÔ´Ï´Ù. 
+ * ì»¤ë‹¤ëž€ ê³µì—°ìž¥ì„ ë¹Œë ¤ì„œ ë¡ íŽ˜ìŠ¤í‹°ë²Œì„ ê°œìµœí•˜ë ¤ê³  í•©ë‹ˆë‹¤. 
+ * ì´ íŽ˜ìŠ¤í‹°ë²Œì€ ì—¬ëŸ¬ ë‚  ë™ì•ˆ ì§„í–‰ë˜ë©°, 
+ * í•˜ë£¨ì— í•œ íŒ€ì˜ ë°´ë“œê°€ ê³µì—°ìž¥ì—ì„œ ì½˜ì„œíŠ¸ë¥¼ í•˜ê²Œ ë©ë‹ˆë‹¤. 
+ * ì „ì²´ ë°´ë“œë¥¼ ëª‡ íŒ€ ì„­ì™¸í•  ì§€ëŠ” ì•„ì§ ê²°ì •í•˜ì§€ ì•Šì•˜ì§€ë§Œ, 
+ * íŽ˜ìŠ¤í‹°ë²Œì˜ ê°„íŒ ìŠ¤íƒ€ì¸ Lê°œì˜ íŒ€ì€ ì´ë¯¸ ì„­ì™¸ê°€ ëë‚œ ìƒíƒœìž…ë‹ˆë‹¤. 
  * 
- * µû¶ó¼­ Æä½ºÆ¼¹úÀº ÃÖ¼Ò LÀÏ ÀÌ»ó ÁøÇàÇÏ°Ô µË´Ï´Ù.
- * ÀÌ¹ø¿¡ »ç¿ëÇÒ °ø¿¬ÀåÀº ÇÏ·ç ºô¸®´Â µ¥ µå´Â ºñ¿ëÀÌ ¸ÅÀÏ ¸ÅÀÏ ´Ù¸¨´Ï´Ù. 
- * ¶§¹®¿¡ °ø¿¬ ÀÏÁ¤À» Àß Á¤ÇØ¼­ °ø¿¬Àå ´ë¿© ºñ¿ëÀ» ÁÙÀÌ·Á°í ÇÕ´Ï´Ù. 
- * ¾ÕÀ¸·Î NÀÏ°£ÀÇ °ø¿¬Àå ´ë¿© ºñ¿ëÀ» ¾Ë°í ÀÖ´Ù°í ÇÕ½Ã´Ù. 
- * ÀÌ Áß LÀÏ ÀÌ»óÀ» ¿¬¼ÓÇØ¼­ ´ë¿©ÇÏµÇ, °ø¿¬ÀåÀ» ÇÏ·ç ºô¸®´Â µ¥ µå´Â 
- * Æò±Õ ºñ¿ëÀ» ÃÖ¼ÒÈ­ÇÏ·Á¸é ¾î¶»°Ô °ø¿¬ÀåÀ» ºô·Á¾ß ÇÒ±î¿ä?
+ * ë”°ë¼ì„œ íŽ˜ìŠ¤í‹°ë²Œì€ ìµœì†Œ Lì¼ ì´ìƒ ì§„í–‰í•˜ê²Œ ë©ë‹ˆë‹¤.
+ * ì´ë²ˆì— ì‚¬ìš©í•  ê³µì—°ìž¥ì€ í•˜ë£¨ ë¹Œë¦¬ëŠ” ë° ë“œëŠ” ë¹„ìš©ì´ ë§¤ì¼ ë§¤ì¼ ë‹¤ë¦…ë‹ˆë‹¤. 
+ * ë•Œë¬¸ì— ê³µì—° ì¼ì •ì„ ìž˜ ì •í•´ì„œ ê³µì—°ìž¥ ëŒ€ì—¬ ë¹„ìš©ì„ ì¤„ì´ë ¤ê³  í•©ë‹ˆë‹¤. 
+ * ì•žìœ¼ë¡œ Nì¼ê°„ì˜ ê³µì—°ìž¥ ëŒ€ì—¬ ë¹„ìš©ì„ ì•Œê³  ìžˆë‹¤ê³  í•©ì‹œë‹¤. 
+ * ì´ ì¤‘ Lì¼ ì´ìƒì„ ì—°ì†í•´ì„œ ëŒ€ì—¬í•˜ë˜, ê³µì—°ìž¥ì„ í•˜ë£¨ ë¹Œë¦¬ëŠ” ë° ë“œëŠ” 
+ * í‰ê·  ë¹„ìš©ì„ ìµœì†Œí™”í•˜ë ¤ë©´ ì–´ë–»ê²Œ ê³µì—°ìž¥ì„ ë¹Œë ¤ì•¼ í• ê¹Œìš”?
  */
 public class RockFestival {
 	public static void main(String[] args) {
@@ -33,11 +33,12 @@ public class RockFestival {
 			System.out.println(calculate(dayN, atLeast, dayInfo));
 		}
 	}
+	//ëª¨ë“  ê²½ìš°ì— ëŒ€í•´ ê³„ì‚°
 	public static double calculate(int dayN, int atLeast, int[] dayInfo) {
 		double min = Double.MAX_VALUE;
 		double value = 0;
-		for(int day = atLeast; day <= dayN; day++) {
-			for(int start = 0; start + day <= dayN; start++) {
+		for(int day = atLeast; day <= dayN; day++) {	//ëª‡ì¼ì„ ê³µì—°í• ì§€
+			for(int start = 0; start + day <= dayN; start++) {	//ì–¸ì œë¶€í„° í•  ì§€
 				value = subCalc(dayInfo, start, start + day - 1);
 				if(min > value)
 					min = value;
